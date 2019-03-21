@@ -10,23 +10,14 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     ConstraintLayout constraintLayout;
+    DrawOS  drawOS;
     TextView tv_xy;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        constraintLayout = (ConstraintLayout) findViewById(R.id.layout_touch);
+        drawOS = new DrawOS(this);
+        setContentView(drawOS);
 
-        tv_xy = (TextView) findViewById(R.id.tv_xy);
-        constraintLayout.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                float x = event.getX();
-                float y = event.getY();
-                tv_xy.setText("X: " + String.valueOf(x) + " Y: " + String.valueOf(y));
-                return false;
-            }
-        });
 
     }
 }
